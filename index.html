@@ -41,6 +41,8 @@ body{
   margin:auto;
 }
 
+/* HERO */
+
 .hero{
   background:linear-gradient(135deg,var(--navy),#123b83);
   color:#fff;
@@ -95,6 +97,8 @@ h1{
   color:#fff;
 }
 
+/* GENERAL */
+
 section{
   padding:48px 0;
 }
@@ -105,25 +109,6 @@ section{
   border-radius:18px;
   padding:28px;
   box-shadow:0 8px 25px rgba(8,36,90,.06);
-}
-
-.dashboard{
-  margin-top:-24px;
-}
-
-.dashboard img,
-.authentic img{
-  display:block;
-  width:100%;
-  border-radius:12px;
-  border:1px solid var(--line);
-}
-
-.caption{
-  text-align:center;
-  color:var(--muted);
-  font-size:.9rem;
-  margin-top:12px;
 }
 
 h2{
@@ -142,52 +127,27 @@ h3{
   gap:20px;
 }
 
-.metrics{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:14px;
+/* COVER */
+
+.dashboard{
+  margin-top:-24px;
 }
 
-.metric{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:20px;
-}
-
-.metric strong{
+.dashboard img{
   display:block;
-  font-size:1.7rem;
-  color:var(--navy);
+  width:100%;
+  border-radius:12px;
+  border:1px solid var(--line);
 }
 
-.metric span{
+.caption{
+  text-align:center;
   color:var(--muted);
-  font-size:.88rem;
+  font-size:.9rem;
+  margin-top:12px;
 }
 
-ul{
-  padding-left:20px;
-}
-
-li{
-  margin:8px 0;
-}
-
-.small{
-  color:var(--muted);
-  font-size:.92rem;
-}
-
-.footer{
-  background:var(--navy);
-  color:#fff;
-  padding:34px 0;
-}
-
-.footer .small{
-  color:#c8d4e8;
-}
+/* POWER BI */
 
 .live-head{
   display:flex;
@@ -230,6 +190,61 @@ li{
   border:0;
   display:block;
 }
+
+/* METRICS */
+
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+}
+
+.metric{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:20px;
+}
+
+.metric strong{
+  display:block;
+  font-size:1.7rem;
+  color:var(--navy);
+}
+
+.metric span{
+  color:var(--muted);
+  font-size:.88rem;
+}
+
+/* LISTS */
+
+ul{
+  padding-left:20px;
+}
+
+li{
+  margin:8px 0;
+}
+
+.small{
+  color:var(--muted);
+  font-size:.92rem;
+}
+
+/* FOOTER */
+
+.footer{
+  background:var(--navy);
+  color:#fff;
+  padding:34px 0;
+}
+
+.footer .small{
+  color:#c8d4e8;
+}
+
+/* RESPONSIVE */
 
 @media(max-width:800px){
 
@@ -274,7 +289,10 @@ li{
 
 <body>
 
+<!-- HERO -->
+
 <header class="hero">
+
 <div class="container">
 
 <div class="eyebrow">
@@ -292,24 +310,29 @@ profitability and operational patterns across a POS agent dataset.
 
 <div class="actions">
 
-<a class="btn primary" href="#interactive-dashboard">
+<a
+class="btn primary"
+href="#interactive-dashboard">
 View Interactive Dashboard
 </a>
 
-<a class="btn secondary" href="#case-study">
+<a
+class="btn secondary"
+href="#case-study">
 Read Case Study
 </a>
 
 </div>
 
 </div>
+
 </header>
 
 
 <main>
 
 
-<!-- POLISHED PORTFOLIO COVER -->
+<!-- DASHBOARD COVER -->
 
 <section class="dashboard">
 
@@ -319,11 +342,11 @@ Read Case Study
 
 <img
 src="dashboard-cover.png"
-alt="Polished POS Agent Revenue Insights Dashboard portfolio cover"
+alt="POS Agent Revenue Insights Dashboard"
 >
 
 <div class="caption">
-Portfolio dashboard visual — analysis period: January–June 2026
+POS Agent Revenue Insights Dashboard — January–June 2026
 </div>
 
 </div>
@@ -333,8 +356,7 @@ Portfolio dashboard visual — analysis period: January–June 2026
 </section>
 
 
-
-<!-- LIVE POWER BI -->
+<!-- INTERACTIVE POWER BI DASHBOARD -->
 
 <section id="interactive-dashboard">
 
@@ -346,7 +368,9 @@ Portfolio dashboard visual — analysis period: January–June 2026
 
 <div>
 
-<div class="eyebrow" style="color:var(--blue)">
+<div
+class="eyebrow"
+style="color:var(--blue)">
 Live Power BI Portfolio Demo
 </div>
 
@@ -355,7 +379,8 @@ Interactive Dashboard
 </h2>
 
 <p class="live-note">
-Use the report filters and page navigation directly inside the embedded Power BI report.
+Explore the report using the filters and page navigation inside the
+embedded Power BI dashboard.
 </p>
 
 </div>
@@ -365,8 +390,7 @@ Use the report filters and page navigation directly inside the embedded Power BI
 class="live-link"
 href="https://app.powerbi.com/view?r=eyJrIjoiYmI3ZDZkYzktYmIzNy00Nzk0LWE5ZmEtNDU1OWJjOGE5MmVkIiwidCI6Ijk4NThlNmNkLTZiZTgtNDIxYi05ZTQ4LTJhOGEyNmZlNDgwMCJ9"
 target="_blank"
-rel="noopener"
->
+rel="noopener">
 Open Full Dashboard ↗
 </a>
 
@@ -390,8 +414,7 @@ allowfullscreen>
 </section>
 
 
-
-<!-- CASE STUDY -->
+<!-- PROJECT OVERVIEW -->
 
 <section id="case-study">
 
@@ -407,14 +430,14 @@ Project Overview
 
 <p>
 This project presents an interactive Power BI dashboard for reviewing
-POS agent performance and business activity. The dashboard brings revenue,
-transaction volume, profitability and transaction outcomes into a single
-reporting view.
+POS agent performance and business activity. The dashboard brings
+revenue, transaction volume, profitability and transaction outcomes
+into a single reporting view.
 </p>
 
 <p>
-The design combines executive-friendly KPIs with visual breakdowns by
-month, transaction type, agent, location and transaction status.
+The design combines executive-friendly KPIs with visual breakdowns
+by month, transaction type, agent, location and transaction status.
 </p>
 
 </div>
@@ -459,8 +482,7 @@ What proportion of transactions are successful?
 </section>
 
 
-
-<!-- METRICS -->
+<!-- KEY METRICS -->
 
 <section>
 
@@ -504,8 +526,7 @@ Key Dashboard Metrics
 </section>
 
 
-
-<!-- CONTENT + SKILLS -->
+<!-- DASHBOARD CONTENT + SKILLS -->
 
 <section>
 
@@ -593,37 +614,7 @@ Data storytelling for business stakeholders
 </section>
 
 
-
-<!-- AUTHENTIC SCREENSHOT -->
-
-<section class="authentic">
-
-<div class="container">
-
-<div class="card">
-
-<h2>
-Authentic Power BI Dashboard
-</h2>
-
-<p class="small">
-Direct screenshot of the dashboard built in Power BI Desktop.
-</p>
-
-<img
-src="dashboard.png"
-alt="Authentic Power BI Desktop screenshot of the POS Agent Revenue Insights Dashboard"
->
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- CONTEXT -->
+<!-- PORTFOLIO CONTEXT -->
 
 <section>
 
@@ -636,9 +627,9 @@ Portfolio Context
 </h2>
 
 <p>
-This project demonstrates my ability to turn operational transaction data
-into a structured management dashboard that supports performance review,
-reporting and business decision-making.
+This project demonstrates my ability to turn operational transaction
+data into a structured management dashboard that supports performance
+review, reporting and business decision-making.
 </p>
 
 <p class="small">
@@ -661,9 +652,11 @@ reporting and business decision-making.
 
 </section>
 
+
 </main>
 
 
+<!-- FOOTER -->
 
 <footer class="footer">
 
