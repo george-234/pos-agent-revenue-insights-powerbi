@@ -3,49 +3,684 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>POS Agent Revenue Insights | George Ade</title>
-<meta name="description" content="Power BI portfolio project analyzing POS agent revenue, transaction performance, profitability and operational insights.">
+
+<title>POS Agent Revenue Insights Dashboard | George Ade</title>
+
+<meta name="description"
+content="Power BI portfolio project analyzing POS agent revenue, transaction performance, profitability and operational insights.">
+
 <style>
-:root{--navy:#08245a;--blue:#1688e8;--ink:#172033;--muted:#5f6b7a;--line:#dfe6ef;--bg:#f5f8fc;--white:#fff}
-*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-.container{width:min(1120px,92%);margin:auto}.hero{background:linear-gradient(135deg,var(--navy),#123b83);color:white;padding:72px 0 56px}
-.eyebrow{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.82}
-h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.05;margin:12px 0 18px}.hero p{max-width:760px;font-size:1.08rem;opacity:.92}
-.tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}.tag{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);padding:7px 12px;border-radius:999px;font-size:.86rem}
-section{padding:52px 0}.card{background:white;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 8px 25px rgba(8,36,90,.06)}
-.dashboard{margin-top:-28px}.dashboard img{display:block;width:100%;border-radius:12px;border:1px solid var(--line)}
-.caption{text-align:center;color:var(--muted);font-size:.9rem;margin-top:12px}h2{font-size:1.75rem;margin:0 0 18px;color:var(--navy)}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:20px}.metric strong{display:block;font-size:1.7rem;color:var(--navy)}.metric span{color:var(--muted);font-size:.88rem}
-ul{padding-left:20px}li{margin:8px 0}.footer{background:var(--navy);color:white;padding:34px 0}.small{color:var(--muted);font-size:.92rem}.footer .small{color:#c8d4e8}
-@media(max-width:800px){.grid{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.hero{padding:52px 0 42px}}
-@media(max-width:480px){.metrics{grid-template-columns:1fr}}
+:root{
+  --navy:#08245a;
+  --blue:#1688e8;
+  --ink:#172033;
+  --muted:#5f6b7a;
+  --line:#dfe6ef;
+  --bg:#f5f8fc;
+  --white:#fff;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Segoe UI,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+}
+
+.container{
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+.hero{
+  background:linear-gradient(135deg,var(--navy),#123b83);
+  color:#fff;
+  padding:64px 0 54px;
+}
+
+.eyebrow{
+  font-size:.78rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-weight:700;
+  opacity:.82;
+}
+
+h1{
+  font-size:clamp(2.2rem,5vw,4rem);
+  line-height:1.04;
+  margin:12px 0 18px;
+}
+
+.hero p{
+  max-width:760px;
+  font-size:1.05rem;
+  opacity:.92;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:26px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:11px 16px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  border:1px solid rgba(255,255,255,.3);
+}
+
+.btn.primary{
+  background:#fff;
+  color:var(--navy);
+}
+
+.btn.secondary{
+  background:rgba(255,255,255,.1);
+  color:#fff;
+}
+
+section{
+  padding:48px 0;
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 8px 25px rgba(8,36,90,.06);
+}
+
+.dashboard{
+  margin-top:-24px;
+}
+
+.dashboard img,
+.authentic img{
+  display:block;
+  width:100%;
+  border-radius:12px;
+  border:1px solid var(--line);
+}
+
+.caption{
+  text-align:center;
+  color:var(--muted);
+  font-size:.9rem;
+  margin-top:12px;
+}
+
+h2{
+  font-size:1.75rem;
+  margin:0 0 18px;
+  color:var(--navy);
+}
+
+h3{
+  color:var(--navy);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+}
+
+.metric{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:20px;
+}
+
+.metric strong{
+  display:block;
+  font-size:1.7rem;
+  color:var(--navy);
+}
+
+.metric span{
+  color:var(--muted);
+  font-size:.88rem;
+}
+
+ul{
+  padding-left:20px;
+}
+
+li{
+  margin:8px 0;
+}
+
+.small{
+  color:var(--muted);
+  font-size:.92rem;
+}
+
+.footer{
+  background:var(--navy);
+  color:#fff;
+  padding:34px 0;
+}
+
+.footer .small{
+  color:#c8d4e8;
+}
+
+.live-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.live-note{
+  margin:0;
+  color:var(--muted);
+}
+
+.live-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 15px;
+  border-radius:10px;
+  background:var(--navy);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.powerbi-frame{
+  width:100%;
+  aspect-ratio:1024/612;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#fff;
+}
+
+.powerbi-frame iframe{
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+}
+
+@media(max-width:800px){
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .metrics{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero{
+    padding:52px 0 42px;
+  }
+
+  .live-head{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .live-link{
+    width:100%;
+  }
+}
+
+@media(max-width:480px){
+
+  .metrics{
+    grid-template-columns:1fr;
+  }
+
+  .actions{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
+}
 </style>
 </head>
+
 <body>
-<header class="hero"><div class="container">
-<div class="eyebrow">Data Analytics Portfolio Project</div>
-<h1>POS Agent Revenue Insights Dashboard</h1>
-<p>A Power BI dashboard designed to analyze revenue, transaction performance, profitability and operational patterns across a POS agent dataset.</p>
-<div class="tags"><span class="tag">Power BI</span><span class="tag">Data Visualization</span><span class="tag">Business Analysis</span><span class="tag">Operational Insights</span></div>
-</div></header>
+
+<header class="hero">
+<div class="container">
+
+<div class="eyebrow">
+Data Analytics Portfolio Project
+</div>
+
+<h1>
+POS Agent Revenue Insights Dashboard
+</h1>
+
+<p>
+A Power BI dashboard designed to analyze revenue, transaction performance,
+profitability and operational patterns across a POS agent dataset.
+</p>
+
+<div class="actions">
+
+<a class="btn primary" href="#interactive-dashboard">
+View Interactive Dashboard
+</a>
+
+<a class="btn secondary" href="#case-study">
+Read Case Study
+</a>
+
+</div>
+
+</div>
+</header>
+
+
 <main>
-<section class="dashboard"><div class="container"><div class="card">
-<img src="pos-agent-revenue-dashboard.png" alt="POS Agent Revenue Insights Power BI dashboard">
-<div class="caption">Power BI dashboard — analysis period: January–June 2026</div>
-</div></div></section>
-<section><div class="container"><h2>Project Overview</h2><div class="grid">
-<div class="card"><p>This project presents an interactive Power BI dashboard for reviewing POS agent performance and business activity. The dashboard brings revenue, transaction volume, profitability and transaction outcomes into a single reporting view.</p><p>The design combines executive-friendly KPIs with visual breakdowns by month, transaction type, agent, location and transaction status.</p></div>
-<div class="card"><h3>Dashboard Questions</h3><ul><li>How is revenue changing over the reporting period?</li><li>How does revenue vary by transaction type?</li><li>Which agents contribute the most revenue?</li><li>Which locations generate the most revenue?</li><li>What proportion of transactions are successful?</li></ul></div>
-</div></div></section>
-<section><div class="container"><h2>Key Dashboard Metrics</h2><div class="metrics">
-<div class="metric"><strong>714K</strong><span>Total Revenue</span></div><div class="metric"><strong>5K</strong><span>Total Transactions</span></div><div class="metric"><strong>15.14K</strong><span>Average Transaction</span></div><div class="metric"><strong>526.62K</strong><span>Total Profit</span></div><div class="metric"><strong>95.73%</strong><span>Success Rate</span></div>
-</div></div></section>
-<section><div class="container"><div class="grid">
-<div class="card"><h2>Dashboard Contents</h2><ul><li>Monthly Revenue Trend</li><li>Revenue by Transaction Type</li><li>Revenue by Agent</li><li>Revenue by Location</li><li>Transaction Success Status</li><li>Month filter for interactive exploration</li></ul></div>
-<div class="card"><h2>Skills Demonstrated</h2><ul><li>Power BI dashboard design</li><li>Business KPI presentation</li><li>Interactive filtering</li><li>Revenue and profitability analysis</li><li>Operational performance reporting</li><li>Data storytelling for business stakeholders</li></ul></div>
-</div></div></section>
-<section><div class="container"><div class="card"><h2>Portfolio Context</h2><p>This project demonstrates my ability to turn operational transaction data into a structured management dashboard that supports performance review, reporting and business decision-making.</p><p class="small"><strong>Author:</strong> George Ade &nbsp;|&nbsp; <strong>Project:</strong> POS Agent Revenue Insights &nbsp;|&nbsp; <strong>Period:</strong> January–June 2026</p></div></div></section>
+
+
+<!-- POLISHED PORTFOLIO COVER -->
+
+<section class="dashboard">
+
+<div class="container">
+
+<div class="card">
+
+<img
+src="dashboard-cover.png"
+alt="Polished POS Agent Revenue Insights Dashboard portfolio cover"
+>
+
+<div class="caption">
+Portfolio dashboard visual — analysis period: January–June 2026
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- LIVE POWER BI -->
+
+<section id="interactive-dashboard">
+
+<div class="container">
+
+<div class="card">
+
+<div class="live-head">
+
+<div>
+
+<div class="eyebrow" style="color:var(--blue)">
+Live Power BI Portfolio Demo
+</div>
+
+<h2>
+Interactive Dashboard
+</h2>
+
+<p class="live-note">
+Use the report filters and page navigation directly inside the embedded Power BI report.
+</p>
+
+</div>
+
+
+<a
+class="live-link"
+href="https://app.powerbi.com/view?r=eyJrIjoiYmI3ZDZkYzktYmIzNy00Nzk0LWE5ZmEtNDU1OWJjOGE5MmVkIiwidCI6Ijk4NThlNmNkLTZiZTgtNDIxYi05ZTQ4LTJhOGEyNmZlNDgwMCJ9"
+target="_blank"
+rel="noopener"
+>
+Open Full Dashboard ↗
+</a>
+
+</div>
+
+
+<div class="powerbi-frame">
+
+<iframe
+title="POS Agent Revenue Insights Dashboard"
+src="https://app.powerbi.com/view?r=eyJrIjoiYmI3ZDZkYzktYmIzNy00Nzk0LWE5ZmEtNDU1OWJjOGE5MmVkIiwidCI6Ijk4NThlNmNkLTZiZTgtNDIxYi05ZTQ4LTJhOGEyNmZlNDgwMCJ9"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CASE STUDY -->
+
+<section id="case-study">
+
+<div class="container">
+
+<h2>
+Project Overview
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<p>
+This project presents an interactive Power BI dashboard for reviewing
+POS agent performance and business activity. The dashboard brings revenue,
+transaction volume, profitability and transaction outcomes into a single
+reporting view.
+</p>
+
+<p>
+The design combines executive-friendly KPIs with visual breakdowns by
+month, transaction type, agent, location and transaction status.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Dashboard Questions
+</h3>
+
+<ul>
+
+<li>
+How is revenue changing over the reporting period?
+</li>
+
+<li>
+How does revenue vary by transaction type?
+</li>
+
+<li>
+Which agents contribute the most revenue?
+</li>
+
+<li>
+Which locations generate the most revenue?
+</li>
+
+<li>
+What proportion of transactions are successful?
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- METRICS -->
+
+<section>
+
+<div class="container">
+
+<h2>
+Key Dashboard Metrics
+</h2>
+
+<div class="metrics">
+
+<div class="metric">
+<strong>714K</strong>
+<span>Total Revenue</span>
+</div>
+
+<div class="metric">
+<strong>5K</strong>
+<span>Total Transactions</span>
+</div>
+
+<div class="metric">
+<strong>15.14K</strong>
+<span>Average Transaction</span>
+</div>
+
+<div class="metric">
+<strong>526.62K</strong>
+<span>Total Profit</span>
+</div>
+
+<div class="metric">
+<strong>95.73%</strong>
+<span>Success Rate</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CONTENT + SKILLS -->
+
+<section>
+
+<div class="container">
+
+<div class="grid">
+
+<div class="card">
+
+<h2>
+Dashboard Contents
+</h2>
+
+<ul>
+
+<li>
+Monthly Revenue Trend
+</li>
+
+<li>
+Revenue by Transaction Type
+</li>
+
+<li>
+Revenue by Agent
+</li>
+
+<li>
+Revenue by Location
+</li>
+
+<li>
+Transaction Success Status
+</li>
+
+<li>
+Month filter for interactive exploration
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+Skills Demonstrated
+</h2>
+
+<ul>
+
+<li>
+Power BI dashboard design
+</li>
+
+<li>
+Business KPI presentation
+</li>
+
+<li>
+Interactive filtering
+</li>
+
+<li>
+Revenue and profitability analysis
+</li>
+
+<li>
+Operational performance reporting
+</li>
+
+<li>
+Data storytelling for business stakeholders
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- AUTHENTIC SCREENSHOT -->
+
+<section class="authentic">
+
+<div class="container">
+
+<div class="card">
+
+<h2>
+Authentic Power BI Dashboard
+</h2>
+
+<p class="small">
+Direct screenshot of the dashboard built in Power BI Desktop.
+</p>
+
+<img
+src="dashboard.png"
+alt="Authentic Power BI Desktop screenshot of the POS Agent Revenue Insights Dashboard"
+>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CONTEXT -->
+
+<section>
+
+<div class="container">
+
+<div class="card">
+
+<h2>
+Portfolio Context
+</h2>
+
+<p>
+This project demonstrates my ability to turn operational transaction data
+into a structured management dashboard that supports performance review,
+reporting and business decision-making.
+</p>
+
+<p class="small">
+
+<strong>Author:</strong> George Ade
+
+&nbsp;|&nbsp;
+
+<strong>Project:</strong> POS Agent Revenue Insights
+
+&nbsp;|&nbsp;
+
+<strong>Period:</strong> January–June 2026
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
 </main>
-<footer class="footer"><div class="container"><strong>George Ade</strong><div class="small">Project & Operations | Data & Reporting | Technology</div></div></footer>
-</body></html>
+
+
+
+<footer class="footer">
+
+<div class="container">
+
+<strong>
+George Ade
+</strong>
+
+<div class="small">
+Project &amp; Operations | Data &amp; Reporting | Technology
+</div>
+
+</div>
+
+</footer>
+
+
+</body>
+</html>
